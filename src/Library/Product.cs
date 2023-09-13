@@ -7,7 +7,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Recipies
+namespace Recipes
 {
     public class Product
     {
@@ -21,6 +21,18 @@ namespace Recipies
         public Product(string json)
         {
             this.LoadFromJson(json);
+        }
+
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+
+        public void LoadFromJson(string json)
+        {
+            Product deserialized = JsonSerializer.Deserialize<Product>(json);
+            this.Description = deserialized.Description;
+            this.UnitCost = deserialized.UnitCost;
         }
         public string Description { get; set; }
 

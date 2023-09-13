@@ -1,4 +1,4 @@
-namespace Recipies
+namespace Recipes
 {
     /// <summary>
     /// Define el tipo que tienen los objetos que pueder ser serializados en y deserializados desde texto en formato
@@ -19,5 +19,5 @@ namespace Recipies
         /// </summary>
         /// <param name="json">El texto en formato Json a partir del cual asignas las propiedades del objeto.</param>
         void LoadFromJson(string json);
-    }
+    } 
 }

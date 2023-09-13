@@ -7,7 +7,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Recipies
+namespace Recipes
 {
     public class Equipment
     {
@@ -21,6 +21,18 @@ namespace Recipies
         public Equipment(string json)
         {
             this.LoadFromJson(json);
+        }
+
+        public string ConvertToJson()
+        {
+            return JsonSerializer.Serialize(this);
+        }
+
+        public void LoadFromJson(string json)
+        {
+            Equipment deserialized = JsonSerializer.Deserialize<Equipment>(json);
+            this.Description = deserialized.Description;
+            this.HourlyCost = deserialized.HourlyCost;
         }
 
         public string Description { get; set; }
